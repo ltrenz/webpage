@@ -1,0 +1,51 @@
+<div class="banner">
+	<h1>Friends Page</h1>
+</div>
+
+<br/> 
+
+Search By Name:<input type=text ng-model="friendFilter.name" />
+<br/><br/>
+
+
+<table>
+    <tr>
+        <th ng-click="doSort('name')">Name</th>
+        <th ng-click="doSort('DOB')"> Birthday</th>
+        <th ng-click="doSort('school')"> School</th>
+        <th>&nbsp;</th>
+    </tr>
+    <tr ng-repeat="x in friends | filter:friendFilter | orderBy:sortBy:reverse">
+    
+        <td> {{x.name}}</td>
+        <td> {{x.DOB | date}}</td>
+        <td> {{x.school}}</td>
+        <td> <a href="#/comments/{{x.id}}">View </a></td>
+    </tr>
+    <tr ng-show="addToTable" >
+        <td>{{friend.newName}}</td>
+        <td>{{friend.newDOB|date}}</td>
+        <td>{{friend.newSchool}}</td>
+        <td> <a href="#/comments/{{x.id}}">View </a></td>
+    </tr> 
+    
+</table>
+
+
+
+<br/> <br/>
+
+
+<button  ng-click="addFriend()">Add Another Friend</button>
+<br/><br/>
+
+<div ng-show='addform'>
+<form name='addFriends' >
+        Name:<input type="text" ng-model="friend.newName" /> <br/>
+        Birthday:<input type=date ng-model="friend.newDOB" /><br/>
+        School:<input type=text ng-model="friend.newSchool" /><br/>
+    
+        <button ng-click="submit()">Submit </button>
+
+  </form> 
+</div>

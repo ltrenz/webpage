@@ -1,0 +1,21 @@
+
+<script>
+<link rel="stylesheet" href="/w3css/4/w3.css">
+</script>
+<div class="banner">
+	<h1>shopping List</h1>
+</div>	
+
+
+  <ul class="shopping">
+    <li ng-repeat="items in products" >{{items}}<span ng-click="removeItem($index)" style="cursor:pointer;">                              <i class="fa fa-times-circle"></i></span></li>
+  </ul>
+        
+
+<input   placeholder="Add shopping items here" ng-model="addMe" >
+    
+ 
+        <button ng-click="addItem()" >Add</button>
+  
+
+    <p>{{errortext}}</p>
